@@ -1,0 +1,247 @@
+.contact{
+    width: 100%;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center; 
+    
+    @media screen and (max-width: 991px) {
+        flex-direction: column;
+    }
+    
+
+    .contact-links{
+        width: 50%;
+        height: 100%;
+        border-radius: 0px 0px 30px 0px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url('../../../assets/images/contact.png') lightgray 50% / cover no-repeat;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            border-radius: 0px 0px 30px 30px;
+        }
+
+        .contact-list{
+            height: 100%;
+            width: calc(1400px / 2);
+            padding: 30px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            @media screen and (max-width: 1420px) {
+                padding: 32.5px 30px;
+                width: 100%;
+            }
+
+            .contact-item{
+                width: 100%;
+
+                .contact-link{
+                    display: flex;
+                    padding: 13px 0;
+                    align-items: center;
+                    gap: 16px;
+                    align-self: stretch;
+                    color: #FFF;
+
+                    span{
+                        color: var(--white);
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 100%; /* 18px */
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 36px;
+        align-self: stretch;
+        width: 50%;
+        height: 100%;
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+        }
+
+        form{
+            width: calc(1400px / 2);
+            padding: 30px 60px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 64px;
+
+            @media screen and (max-width: 1420px) {
+                padding: 32.5px 30px;
+                width: 100%;
+            }
+
+            .group-checkbox{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+                align-self: stretch;
+
+                span{
+                    color: var(--black);
+                }
+
+                .checkbox-wrapper{
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: flex-start;
+                    gap: 16px;
+                    align-self: stretch;
+
+                    .checkbox {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        position: relative;
+                        
+                    
+                        input[type="radio"] {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: flex-start;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            opacity: 0;
+                            cursor: pointer;
+                    
+                            &:checked ~ label {
+                                background: var(--primary);
+                                color: var(--white);
+                                border-radius: 4px;
+                                border: 1px solid var(--primary);
+                                transition: 300ms ease-in-out;
+                            }
+                        }
+                    
+                        label {
+                            width: 100%;
+                            padding: 12px 24px;
+                            border-radius: 4px;
+                            border: 1px solid var(--secondary);
+                            background: transparent;
+                            transition: 300ms ease-in-out;
+                            font-size: 16px;
+                            font-weight: 500;
+                            line-height: 28.2px;
+                            letter-spacing: 0.8px;
+                            color: var(--text);
+                            
+                        }
+                    }
+                    
+                }
+            }
+
+            .form-content{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 34px;
+                width: 100%;
+
+                .form-group{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 8px;
+                    position: relative;
+                    padding: 12px 0;
+                    border-bottom: 3px solid var(--secondary);
+
+                    &.btn{
+                        border: 0;
+
+                        &:focus, &:focus-within{
+                            border-bottom: 0;
+                        }
+
+                        button{
+                            display: flex;
+                            padding: 16px 24px;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 8px;
+                            border-radius: 8px;
+                            background: var(--primary);
+                            color: var(--white);
+                            font-family: Roboto;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 26px; /* 118.182% */
+                            transition: 300ms ease-in-out;
+
+                            &:hover{
+                                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                                transition: 300ms ease-in-out;
+                            }
+                        }
+                    }
+
+                    &:focus, &:focus-within{
+                        border-bottom: 3px solid var(--primary);
+
+                        label{
+                            top: -15px;
+                            transition: top 150ms linear;
+                            color: var(--primary);
+                        }
+                    }
+
+                    label{
+                        position: absolute;
+                        width: 80%;
+                        transition: top 150ms linear;
+                        top: 10px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 28.2px;
+                        letter-spacing: 0.8px;
+                        color: var(--text);
+                    }
+
+                    input, textarea{
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                        border-bottom: 0;
+                        background: transparent;
+                        width: 100%;
+                        outline: 0;
+                        
+
+                      
+                    }
+
+                    textarea{
+                        resize: none;
+                    }
+                }
+            }
+        }
+    }
+}

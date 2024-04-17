@@ -1,0 +1,240 @@
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(70px);
+    background: transparent;
+
+    &.reached-banner-header{
+        background: var(--bg-primary);
+        animation: slideFromTop 0.5s ease-in-out forwards;
+
+        .navbar{
+            .btn-mobile{
+                .btn-text{
+                    color: var(--black);
+                    
+                }
+                .btn-line{
+                    .line-top{
+                        width: 50%;
+                        background-color: var(--black);
+                        margin-left: auto;
+                        height: 3px;
+                        transition: 300ms ease-in-out;
+                    }
+    
+                    .line-bottom{
+                        width: 50%;
+                        background-color: var(--black);
+                        margin-right: auto;
+                        height: 3px;
+                        transition: 300ms ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar{
+        display: flex;
+        box-shadow: 0px 4px 15.4px 0px rgba(6, 5, 66, 0.20);
+        position: relative;
+        height: 100%;
+        
+        .container{
+            justify-content: space-between;
+            align-items: center;
+            gap: 0;
+        }
+
+        .navbar-brand{
+            margin-right: 25px;
+            height: 100%;
+
+            a{
+                display: flex;
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+
+        .btn-mobile{
+            display: none;
+        }
+
+        @media (max-width: 1100px){
+            .container{
+                flex-wrap: wrap;
+            }
+            
+           .btn-mobile{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                gap: 8px;
+                cursor: pointer;
+
+                &:hover{
+                    .btn-line{
+                        .line-top{
+                            width: 100%;
+                            transition: 300ms ease-in-out;
+                        }
+    
+                        .line-bottom{
+                            width: 100%;
+                            transition: 300ms ease-in-out;
+                        }
+                    }
+                }
+
+                .btn-line{
+                    height: 100%;
+                    width: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 5px;
+
+                    .line-top{
+                        width: 50%;
+                        background-color: var(--white);
+                        margin-left: auto;
+                        height: 3px;
+                        transition: 300ms ease-in-out;
+                    }
+
+                    .line-bottom{
+                        width: 50%;
+                        background-color: var(--white);
+                        margin-right: auto;
+                        height: 3px;
+                        transition: 300ms ease-in-out;
+                    }
+                }
+
+                .btn-text{
+                    color: var(--white);
+                    transition: 300ms ease-in-out;
+                    font-weight: 500;
+                    letter-spacing: 0.5px;
+                    text-transform: capitalize;
+                    cursor: pointer;
+                }
+            }
+
+
+        }
+
+        
+    }
+}
+
+.nav{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    z-index: 999;
+
+    &.reached-banner-nav{
+        .nav-list .nav-item .nav-link{
+            color: var(--black-80);
+            &:hover:not(&.active){
+                color: var(--black);
+            }
+        }
+    }
+    
+    @media screen and (max-width: 1100px) {
+        
+        top: 100%;
+        left: 0;
+        height: 0px;
+        overflow: hidden;
+        min-width: 100%;
+        justify-content: flex-start;
+        transition:  350ms ease-in-out;
+
+        &.active-nav{
+            margin-top: 15px;
+            height: 300px;
+            transition:  350ms ease-in-out;
+        }
+    }
+
+    .nav-list{
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        height: 100%;
+        justify-content: flex-end;
+        
+
+        @media screen and (max-width: 1100px) {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            padding: 0 0;
+            gap: 15px;
+        }
+
+        .nav-item{
+            width: 100%;
+            height: 100%;
+
+            .nav-link{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;  
+                flex-grow: 1; 
+                text-wrap: nowrap;   
+                text-transform: capitalize;  
+                color: var(--white-80);
+                transition: 300ms ease-in-out;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+
+                &.active{
+                    color: var(--primary);
+                    font-weight: 700;
+                }
+
+                &:hover:not(&.active){
+                    color: var(--white);
+                    transition: 300ms ease-in-out;
+                }
+
+                @media screen and (max-width: 1100px) {
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    &:hover:not(&.active){
+                        color: var(--white);
+                        transition: 300ms ease-in-out;
+                    }
+                    
+                }
+                
+                
+            }
+        }
+    }
+}
+
+@keyframes slideFromTop {
+    from {
+      top: -100%;
+    }
+    to {
+      top: 0;
+    }
+  }

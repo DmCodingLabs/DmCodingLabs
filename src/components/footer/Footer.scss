@@ -1,0 +1,51 @@
+footer{
+    .container{
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px;
+
+    @media screen and (max-width: 500px) {
+        padding: 15px 30px;
+    }
+
+    .copy{
+        color: var(--text);
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14.4px; /* 120% */
+        letter-spacing: 0.36px;
+    }
+
+    .link-social{
+        display: flex;
+        align-items: flex-start;
+    
+        .link{
+            width: 28px;
+            height: 28px;
+            transform: scale(1);
+            transition: 250ms ease-in-out;
+
+            svg{
+                width:24px;
+                height: 24px;
+                color: var(--black);
+                transition: 250ms ease-in-out;
+            }
+
+            &:hover{
+                transform: scale(1.1);
+                transition: 250ms ease-in-out;
+
+                svg{
+                    color: var(--primary);
+                    transition: 250ms ease-in-out;
+                }
+            }
+        }
+    }
+    }
+}
