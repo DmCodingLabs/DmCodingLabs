@@ -81,17 +81,12 @@
         }
 
         p{
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 500;
             line-height: 28.2px;
             letter-spacing: 0.8px;
             color: var(--text);
             text-align: justify;
-
-            @media screen and (max-width: 1850px) {
-                font-size: 15px;
-                line-height: 22.2px;
-            }
         }
     }
 }

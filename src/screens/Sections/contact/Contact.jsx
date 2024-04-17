@@ -96,15 +96,15 @@ const Contact = () => {
                 <div className="form-content">
                     <div className="form-group">
                         <label htmlFor="user_name">Nom & Prénom</label>
-                        <input type="text" name="user_name" id="user_name" />
+                        <input type="text" name="user_name" autocomplete="off" id="user_name" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Adresse email</label>
-                        <input type="email" name="user_email" id="email" />
+                        <input type="email" autocomplete="off" name="user_email" id="email" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="message">Message</label>
-                        <textarea name="message" id="message"></textarea>
+                        <textarea name="message" autocomplete="off" id="message"></textarea>
                     </div>
                     
                     <div className="form-group btn">

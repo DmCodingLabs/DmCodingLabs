@@ -57,19 +57,19 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const header = document.querySelector('header');
-      const banner = document.querySelector('.home');
+      const header = document.querySelector('.navbar');
+      const home = document.querySelector('.home');
       
-      if (header && banner) {
+     
         const headerBottom = header.getBoundingClientRect().bottom;
-        const bannerTop = banner.getBoundingClientRect().bottom - 100;
+        const homeTop = home.getBoundingClientRect().bottom;
         
-        if (headerBottom >= bannerTop) {
+        if (headerBottom > homeTop) {
           setHeaderReachedBanner(true);
         } else {
           setHeaderReachedBanner(false);
         }
-      }
+      
     };
 
     window.addEventListener("scroll", handleScroll);

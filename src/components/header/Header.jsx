@@ -56,37 +56,37 @@ const Header = ({ screenSize, reachedBanner, themeColor }) => {
         <nav className={`nav ${openMenu ? "active-nav" : ""} ${reachedBanner ? "reached-banner-nav" : ""}`}>
           <ul className="nav-list">
             <li className="nav-item">
-              <a href="" className="nav-link active">
+              <a href="#home" className="nav-link active">
                 accueil
               </a>
             </li>
             <li className="nav-item">
-              <a href="" className="nav-link">
+              <a href="#about" className="nav-link">
                 à propos
               </a>
             </li>
             <li className="nav-item">
-              <a href="" className="nav-link">
+              <a href="#services" className="nav-link">
                 services
               </a>
             </li>
             <li className="nav-item">
-              <a href="" className="nav-link">
+              <a href="#process" className="nav-link">
                 processus
               </a>
             </li>
             <li className="nav-item">
-              <a href="" className="nav-link">
+              <a href="#projects" className="nav-link">
                 projets
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a href="" className="nav-link">
                 testimonials
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
-              <a href="" className="nav-link">
+              <a href="#contact" className="nav-link">
                 contact
               </a>
             </li>

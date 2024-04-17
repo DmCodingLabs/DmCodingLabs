@@ -36,6 +36,23 @@
     }
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary); 
+    border-radius: 2px;
+    transition: 300ms ease-in-out;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--san-marino); 
+    transition: 300ms ease-in-out;
+  }
 
 
 body{
@@ -43,6 +60,7 @@ body{
     font-family: "Roboto";
     width: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 #root{
