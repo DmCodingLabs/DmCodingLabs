@@ -7,6 +7,7 @@
     
     @media screen and (max-width: 991px) {
         flex-direction: column;
+        height: 100%;
     }
     
 
@@ -55,6 +56,11 @@
                         font-weight: 500;
                         line-height: 100%; /* 18px */
                     }
+
+                    svg{
+                        min-width: 24px;
+                        min-height: 24px;
+                    }
                 }
             }
         }
@@ -82,7 +88,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            gap: 64px;
+            gap: 34px;
 
             @media screen and (max-width: 1420px) {
                 padding: 32.5px 30px;
@@ -207,15 +213,16 @@
 
                         label{
                             top: -15px;
-                            transition: top 150ms linear;
+                            transition: 150ms linear;
                             color: var(--primary);
+                            font-size: 13px;
                         }
                     }
 
                     label{
                         position: absolute;
                         width: 80%;
-                        transition: top 150ms linear;
+                        transition: 150ms linear;
                         top: 10px;
                         font-size: 16px;
                         font-weight: 500;
