@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Banner.scss'
 
-const Banner = ({topTitle, title, left, id}) => {
+const Banner = ({topTitle, title, left, id, bgColor}) => {
     const particlesRef = useRef(null);
 
     useEffect(() => {

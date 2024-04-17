@@ -18,8 +18,29 @@ function App() {
     height: window.innerHeight,
   });
   const [headerReachedBanner, setHeaderReachedBanner] = useState(false);
+  const [colorScheme, setColorScheme] = useState('');
 
   useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const isDarkMode = darkModeMediaQuery.matches;
+
+    setColorScheme(isDarkMode ? 'dark' : 'light');
+
+    // Écoutez les modifications du thème de couleur préféré
+    const handleChange = (event) => {
+      setColorScheme(event.matches ? 'dark' : 'light');
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleChange);
+
+    // Nettoyer le gestionnaire d'événements lorsque le composant est démonté
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
+
+  useEffect(() => {
+
     const updateScreenSize = () => {
       setScreenSize({
         width: window.innerWidth,
@@ -58,21 +79,23 @@ function App() {
     };
   }, [headerReachedBanner]);
 
+  console.log(colorScheme)
+
   return (
     <>
-      <Header screenSize={screenSize} reachedBanner={headerReachedBanner} />
+      <Header screenSize={screenSize} reachedBanner={headerReachedBanner} themeColor={colorScheme} />
       <main>
         <HomeSlider />
-        <Banner topTitle={'Qui je suis ?'} title={'à propos'} left={false} id={'banner-about'} />
+        <Banner topTitle={'Qui je suis ?'} title={'à propos'} left={false} id={'banner-about'} bgColor={colorScheme} />
         <About />
         <Mission />
-        <Banner topTitle={'Services'} title={'mes services'} left={true} id={'banner-services'} />
+        <Banner topTitle={'Services'} title={'mes services'} left={true} id={'banner-services'} bgColor={colorScheme}/>
         <Services />
-        <Banner topTitle={'processus'} title={'mon processus'} left={false} id={'banner-process'} />
+        <Banner topTitle={'processus'} title={'mon processus'} left={false} id={'banner-process'} bgColor={colorScheme}/>
         <Process />
-        <Banner topTitle={'projets'} title={'mes projets'} left={false} id={'banner-project'} />
+        <Banner topTitle={'projets'} title={'mes projets'} left={false} id={'banner-project'} bgColor={colorScheme}/>
         <Projects />
-        <Banner topTitle={'contact'} title={'me contacter'} left={true} id={'banner-contact'} />
+        <Banner topTitle={'contact'} title={'me contacter'} left={true} id={'banner-contact'} bgColor={colorScheme}/>
         <Contact />
       </main>
       <Footer />

@@ -5,14 +5,31 @@ import LogoShort from '../../assets/images/logo-short-white.svg';
 import LogoDark from "../../assets/images/logo-long.svg";
 import LogoShortDark from '../../assets/images/logo-short.svg';
 
-const Header = ({ screenSize, reachedBanner }) => {
+const Header = ({ screenSize, reachedBanner, themeColor }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [logo, setLogo] = useState("");
 
-  // Mettre à jour le logo lorsque reachedBanner change
-  useEffect(() => {
-    setLogo(screenSize.width > 501 ? (reachedBanner ? LogoDark : Logo) : (reachedBanner ? LogoShortDark : LogoShort));
-  }, [reachedBanner]);
+ // Mettre à jour le logo lorsque reachedBanner change ou lorsque themeColor change
+ useEffect(() => {
+  const determineLogo = () => {
+    if (screenSize.width > 501) {
+      if (themeColor === 'dark'){
+        setLogo(Logo);
+      } else if (themeColor === 'light'){
+        setLogo(reachedBanner? LogoDark : Logo);
+      }
+    } else {
+      if (themeColor === 'dark'){
+        setLogo(LogoShort);
+      } else if (themeColor === 'light'){
+        setLogo(reachedBanner? LogoShortDark : LogoShort);
+      }
+    }
+  };
+
+  determineLogo();
+}, [screenSize.width, reachedBanner, themeColor]);
+
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);

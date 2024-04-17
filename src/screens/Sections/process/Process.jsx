@@ -92,31 +92,7 @@ const cards = [
   {
     title: 'Mise en production',
     description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
-  },
-  {
-    title: 'Mise en production',
-    description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
-  },
-  {
-    title: 'Mise en production',
-    description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
-  },
-  {
-    title: 'Mise en production',
-    description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
-  },
-  {
-    title: 'Mise en production',
-    description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
-  },
-  {
-    title: 'Mise en production',
-    description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
-  },
-  {
-    title: 'Mise en production',
-    description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
-  },
+  }
 
 ];
 
