@@ -28,7 +28,7 @@
     --linear-card-testimonial: linear-gradient(152deg, #FFF 8.37%, #BEBEBE 87.4%);
 
     @media (prefers-color-scheme: dark) {
-        --bg-primary: #010101;
+        --bg-primary: #111;
         --white: #000;
         --black: #fff;
         --black-80: rgba(255,255,255,0.8);
@@ -61,6 +61,7 @@ body{
     width: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased
 }
 
 #root{

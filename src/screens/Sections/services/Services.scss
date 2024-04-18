@@ -41,17 +41,17 @@
 
             
             &:first-child, &:last-child{
-                max-height: 430px;
+                min-height: 430px;
                 height: 100%;
 
-                @media screen and (max-width: 1140px) {                  
-                    max-height: 450px;                   
+                @media screen and (max-width: 1150px) {                  
+                    min-height: 450px;                   
                 }
     
             }
 
             &:nth-child(2){
-                max-height: 450px;
+                min-height: 450px;
                 height: 100%;
             }
 

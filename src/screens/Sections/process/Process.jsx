@@ -6,14 +6,13 @@ const Process = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderContainerRef = useRef(null);
   const totalSlides = cards.length;
-  const [btnNextVisible, setNextVisible] = useState(false)
+  const [nextButtonVisible, setNextButtonVisible] = useState(false);
 
   const nextSlide = () => {
-    console.log(isLastCardVisible);
     if (isLastCardVisible()) {
       return;
     }
-    setCurrentSlide((prevSlide) => (prevSlide === totalSlides -1  ? 0 : prevSlide + 1));
+    setCurrentSlide((prevSlide) => (prevSlide === totalSlides - 1 ? 0 : prevSlide + 1));
   };
 
   const prevSlide = () => {
@@ -24,20 +23,18 @@ const Process = () => {
     if (sliderContainerRef.current) {
       const containerRect = sliderContainerRef.current.getBoundingClientRect();
       const lastCardRect = sliderContainerRef.current.lastElementChild.getBoundingClientRect();
+      const totalWidth = sliderContainerRef.current.offsetWidth;
+      const totalCardsWidth = Array.from(sliderContainerRef.current.children).reduce((acc, child) => acc + child.offsetWidth, 0);
 
-      if(lastCardRect.right - 220 <= containerRect.right){
-        setNextVisible(true)
-        return true;
-      } else {
-        setNextVisible(false)
-        return false;
-      }
+      setNextButtonVisible(totalWidth < totalCardsWidth || lastCardRect.right < containerRect.right);
+
+      return lastCardRect.right < containerRect.right;
     }
   };
 
   useEffect(() => {
     isLastCardVisible();
-  })
+  }, [currentSlide]);
 
   return (
     <section className="process">
@@ -62,7 +59,7 @@ const Process = () => {
             <button className="btn-prev" onClick={prevSlide} style={{ display: currentSlide === 0 ? 'none' : 'block' }}>
               <IoIosArrowBack />
             </button>
-            <button className="btn-next" onClick={nextSlide} style={{ display: btnNextVisible ? 'none' : 'block' }}>
+            <button className="btn-next" onClick={nextSlide} style={{ display: !nextButtonVisible ? 'none' : 'block' }}>
               <IoIosArrowForward />
             </button>
           </div>
@@ -93,7 +90,6 @@ const cards = [
     title: 'Mise en production',
     description: 'Un cahier des charges sera mis en place pour faciliter la compréhension de vos attentes pendant le processus de création.',
   }
-
 ];
 
 export default Process;

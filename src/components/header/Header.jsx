@@ -36,7 +36,7 @@ const Header = ({ screenSize, reachedBanner, themeColor }) => {
   };
 
   return (
-    <header className={`${reachedBanner ? "reached-banner-header" : ""}`}>
+    <header className={reachedBanner ? "reached-banner-header" : ""}>
       <div className="navbar">
        <div className="container">
        <div className="navbar-brand">

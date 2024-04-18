@@ -50,9 +50,6 @@
                         width: 100%;
 
                         .number{
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
                             -webkit-text-stroke: 1px var(--primary);
                             color: transparent;
                             font-family: "Roboto Mono";
@@ -61,7 +58,6 @@
                             font-weight: 700;
                             line-height: 100%; /* 35.267% */
                             width: 100%;
-                            flex: 1 0 0;
                         }
 
                         .title{

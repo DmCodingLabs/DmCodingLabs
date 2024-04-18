@@ -33,8 +33,8 @@ const Banner = ({topTitle, title, left, id, bgColor}) => {
                       }
                     },
                     "opacity": {
-                      "value": 0.43292125643369117,
-                      "random": true,
+                      "value": 1,
+                      "random": false,
                       "anim": {
                         "enable": false,
                         "speed": 0.9744926547616141,
@@ -61,7 +61,7 @@ const Banner = ({topTitle, title, left, id, bgColor}) => {
                     },
                     "move": {
                       "enable": true,
-                      "speed": 11.22388442605866,
+                      "speed": 6,
                       "direction": "none",
                       "random": true,
                       "straight": false,

@@ -17,30 +17,30 @@ function App() {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+
   const [headerReachedBanner, setHeaderReachedBanner] = useState(false);
-  const [colorScheme, setColorScheme] = useState('');
 
+  const [colorScheme, setColorScheme] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  );
+
+  // Update color scheme based on user preference change
   useEffect(() => {
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const isDarkMode = darkModeMediaQuery.matches;
+    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    setColorScheme(isDarkMode ? 'dark' : 'light');
-
-    // Écoutez les modifications du thème de couleur préféré
     const handleChange = (event) => {
-      setColorScheme(event.matches ? 'dark' : 'light');
+      setColorScheme(event.matches ? "dark" : "light");
     };
 
-    darkModeMediaQuery.addEventListener('change', handleChange);
+    darkModeMediaQuery.addEventListener("change", handleChange);
 
-    // Nettoyer le gestionnaire d'événements lorsque le composant est démonté
     return () => {
-      darkModeMediaQuery.removeEventListener('change', handleChange);
+      darkModeMediaQuery.removeEventListener("change", handleChange);
     };
   }, []);
 
+  // Update screen size on window resize
   useEffect(() => {
-
     const updateScreenSize = () => {
       setScreenSize({
         width: window.innerWidth,
@@ -55,21 +55,18 @@ function App() {
     };
   }, []);
 
+  // Update headerReachedBanner based on scrolling
   useEffect(() => {
     const handleScroll = () => {
-      const header = document.querySelector('.navbar');
-      const home = document.querySelector('.home');
-      
-     
+      const header = document.querySelector(".navbar");
+      const home = document.querySelector(".home");
+
+      if (header && home) {
         const headerBottom = header.getBoundingClientRect().bottom;
         const homeTop = home.getBoundingClientRect().bottom;
-        
-        if (headerBottom > homeTop) {
-          setHeaderReachedBanner(true);
-        } else {
-          setHeaderReachedBanner(false);
-        }
-      
+
+        setHeaderReachedBanner(headerBottom > homeTop);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -79,23 +76,50 @@ function App() {
     };
   }, [headerReachedBanner]);
 
-  console.log(colorScheme)
-
   return (
     <>
       <Header screenSize={screenSize} reachedBanner={headerReachedBanner} themeColor={colorScheme} />
       <main>
         <HomeSlider />
-        <Banner topTitle={'Qui je suis ?'} title={'à propos'} left={false} id={'banner-about'} bgColor={colorScheme} />
+        <Banner
+          topTitle={'Qui je suis ?'}
+          title={'à propos'}
+          left={false}
+          id={'banner-about'}
+          bgColor={colorScheme}
+        />
         <About />
         <Mission />
-        <Banner topTitle={'Services'} title={'mes services'} left={true} id={'banner-services'} bgColor={colorScheme}/>
+        <Banner
+          topTitle={'Services'}
+          title={'mes services'}
+          left={true}
+          id={'banner-services'}
+          bgColor={colorScheme}
+        />
         <Services />
-        <Banner topTitle={'processus'} title={'mon processus'} left={false} id={'banner-process'} bgColor={colorScheme}/>
+        <Banner
+          topTitle={'processus'}
+          title={'mon processus'}
+          left={false}id={'banner-process'}
+          bgColor={colorScheme}
+        />
         <Process />
-        <Banner topTitle={'projets'} title={'mes projets'} left={false} id={'banner-project'} bgColor={colorScheme}/>
+        <Banner
+          topTitle={'projets'}
+          title={'mes projets'}
+          left={false}
+          id={'banner-project'}
+          bgColor={colorScheme}
+        />
         <Projects />
-        <Banner topTitle={'contact'} title={'me contacter'} left={true} id={'banner-contact'} bgColor={colorScheme}/>
+        <Banner
+          topTitle={'contact'}
+          title={'me contacter'}
+          left={true}
+          id={'banner-contact'}
+          bgColor={colorScheme}
+        />
         <Contact />
       </main>
       <Footer />
